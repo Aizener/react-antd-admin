@@ -1,0 +1,24 @@
+.international {
+  padding: 30px 15px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .ant-radio-group {
+    padding: 20px 80px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 5px #eee;
+  }
+  h2 {
+    color: #1890ff;
+    span {
+      margin-right: 10px;
+    }
+  }
+  p {
+    margin-top: 10px;
+    color: #999;
+  }
+}

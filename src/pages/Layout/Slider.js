@@ -2,22 +2,25 @@ import React from 'react'
 import { Menu } from 'antd'
 import * as Icon from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const { SubMenu } = Menu
 
 const menus = [
-  { path: '/home', title: '首页', icon: 'PieChartOutlined' },
-  { path: '/about', title: '关于', icon: 'DesktopOutlined' },
-  { path: '/multi', title: '多级菜单', icon: 'ApartmentOutlined', children: [
-    { path: '/multi/page1', title: '第一级1', icon: 'MenuOutlined', children: [
-      { path: '/multi/page1/one', title: '第一级1-1', icon: 'MenuOutlined' },
-      { path: '/multi/page1/two', title: '第一级1-2', icon: 'MenuOutlined' },
+  { path: '/home', title: 'home', icon: 'PieChartOutlined' },
+  { path: '/about', title: 'about', icon: 'DesktopOutlined' },
+  { path: '/multi', title: 'nested', icon: 'ApartmentOutlined', children: [
+    { path: '/multi/page1', title: 'nested1', icon: 'MenuOutlined', children: [
+      { path: '/multi/page1/one', title: 'nested11', icon: 'MenuOutlined' },
+      { path: '/multi/page1/two', title: 'nested12', icon: 'MenuOutlined' },
     ] },
-    { path: '/multi/page2', title: '第一级2', icon: 'MenuOutlined' },
+    { path: '/multi/page2', title: 'nested2', icon: 'MenuOutlined' },
   ] },
+  { path: '/international', title: 'i18n', icon: 'GlobalOutlined' },
 ]
 
 export default function Slider () {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const handleClickMenuItem = e => {
     navigate(e.key)
@@ -29,7 +32,7 @@ export default function Slider () {
         return (
           <SubMenu
             key={m.path}
-            title={m.title}
+            title={t(m.title)}
             icon={React.createElement(Icon[m.icon])}
           >{resolveMenu(m.children)}</SubMenu>
         )
@@ -37,7 +40,7 @@ export default function Slider () {
         return <Menu.Item
           key={m.path}
           icon={React.createElement(Icon[m.icon])}
-        >{m.title}</Menu.Item>
+        >{t(m.title)}</Menu.Item>
       }
     })
   }

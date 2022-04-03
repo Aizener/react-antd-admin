@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import './utils/locale'
+
 import NotFound from './pages/NotFound'
 import Layout from './pages/Layout/Index'
 import Home from './pages/Home'
@@ -10,6 +12,11 @@ import Page1 from './pages/MultiPage/Page1'
 import Page2 from './pages/MultiPage/Page2'
 import Page11 from './pages/MultiPage/Page11'
 import Page12 from './pages/MultiPage/Page12'
+import International from './pages/International'
+
+import moment from 'moment'
+import 'moment/locale/zh-cn'
+moment.locale('zh-cn')
 
 class App extends React.Component {
   render() {
@@ -26,6 +33,7 @@ class App extends React.Component {
               </Route>
               <Route path="page2" element={<Page2 />} />
             </Route>
+            <Route path="international" element={<International />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

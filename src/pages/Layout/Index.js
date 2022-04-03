@@ -18,8 +18,12 @@ export default function Index() {
     <Layout>
       <Sider collapsed={collapsed}><LayoutSlider /></Sider>
       <Layout>
-        <Header style={{padding: '0 15px'}}><LayoutHeader /></Header>
-        <Content><Outlet /></Content>
+        <Header style={{
+          padding: '0 15px',
+          background: '#fff',
+          boxShadow: '0 2px 5px #ccc'
+        }}><LayoutHeader /></Header>
+        <Content style={{padding: '15px'}}><Outlet /></Content>
       </Layout>
     </Layout>
   )

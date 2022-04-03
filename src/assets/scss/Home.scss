@@ -1,0 +1,40 @@
+.cards {
+  display: flex;
+  .ant-card {
+    margin: 0 5px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.card-title {
+  margin: 6px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.line-charts {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.bottom {
+  display: flex;
+  &-item {
+    flex: 1;
+    margin: 0 5px;
+    background-color: #fff;
+    &:first-child {
+      margin-right: 10px;
+    }
+    &:last-child {
+      flex: 2;
+      margin-left: 10px;
+    }
+  }
+}

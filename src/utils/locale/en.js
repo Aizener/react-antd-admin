@@ -10,7 +10,9 @@ const translation = {
   i18nObj: {
     intro: 'Click the button below to switch between different languages',
     base: 'Internationalization is based on react-i18n,I18n and other libraries!'
-  }
+  },
+  theme: 'Theme',
+  auth: 'Authorization',
 }
 
 export default translation

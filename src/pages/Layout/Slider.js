@@ -17,6 +17,7 @@ const menus = [
     { path: '/multi/page2', title: 'nested2', icon: 'MenuOutlined' },
   ] },
   { path: '/international', title: 'i18n', icon: 'GlobalOutlined' },
+  { path: '/authorization', title: 'auth', icon: 'SafetyOutlined' },
 ]
 
 export default function Slider () {

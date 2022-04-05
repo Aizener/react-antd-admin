@@ -21,9 +21,9 @@ export default function NotFound() {
           width: '500px'
         }}
       />
-      <div class="text">
-        <h2 class="tip">啊哦，找不到页面啦o(╥﹏╥)o</h2>
-        <div class="reson">
+      <div className="text">
+        <h2 className="tip">啊哦，找不到页面啦o(╥﹏╥)o</h2>
+        <div className="reson">
           <p>当您看到这个页面，</p>
           <p>说明该资源可能已经不存在或者没有权限访问，</p>
           <p>也有可能是访问的链接出错。</p>

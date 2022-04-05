@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Layout } from 'antd'
-import { Outlet } from 'react-router-dom'
+import { Outlet, Navigate, useLocation } from 'react-router-dom'
 import LayoutHeader from './Header'
 import LayoutSlider from './Slider'
 import MenuReducer from '../../store/MenuReducer'
@@ -8,6 +8,7 @@ import MenuReducer from '../../store/MenuReducer'
 const { Header, Sider, Content } = Layout
 
 export default function Index() {
+  const { pathname } = useLocation()
   const [collapsed, setCollapsed] = useState(MenuReducer.getState().collapsed)
   useEffect(() => {
     MenuReducer.subscribe(() => {
@@ -25,6 +26,7 @@ export default function Index() {
         }}><LayoutHeader /></Header>
         <Content style={{padding: '15px'}}><Outlet /></Content>
       </Layout>
+      { pathname === '/' && <Navigate to="/home" replace /> }
     </Layout>
   )
 }

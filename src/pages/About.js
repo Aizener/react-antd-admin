@@ -6,8 +6,8 @@ import IconFont from '../utils/IconFont'
 
 export default function About() {
   const tags = [
-    { title: 'Github', icon: 'GithubOutlined', color: '#333', url: 'https://github.com/Aizener' },
-    { title: '个人博客', icon: <Space><IconFont type="icon-blogger"></IconFont></Space>, color: '#cd201f', url: 'http://yangxiang.cc'}
+    { title: 'Github', icon: 'GithubOutlined', color: '#333', url: 'https://github.com/Aizener/react-antd-admin' },
+    { title: '个人博客', icon: <Space><IconFont type="icon-blogger"></IconFont></Space>, color: '#55acee', url: 'http://yangxiang.cc'}
   ]
 
   const handleTurnPage = url => {

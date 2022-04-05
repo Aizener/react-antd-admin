@@ -10,6 +10,8 @@ const translation = {
   i18nObj: {
     intro: '点击下方按钮切换不同的语言',
     base: '国际化基于react-i18n、i18n等库实现！'
-  }
+  },
+  theme: '主题',
+  auth: '权限管理',
 }
 export default translation

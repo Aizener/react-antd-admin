@@ -4,15 +4,16 @@ const defaultState = {
   remember: false,
   userInfo: null
 }
-const LoginReducer = (state = defaultState, action) => {
+const UserReducer = (state = defaultState, action) => {
   switch(action.type) {
-    case 'login/changeUser':
+    case 'user/changeUser':
       const user = action.user
-      sessionStorage.setItem('token', user.token)
+      localStorage.setItem('token', user.token)
       if (user.remember) {
         localStorage.setItem('remember', user.remember)
-        localStorage.setItem('token', user.token)
         localStorage.setItem('userInfo', JSON.stringify({ username: user.username, password: user.password }))
+      } else {
+        localStorage.removeItem('remember')
       }
       return {
         ...state,
@@ -20,9 +21,18 @@ const LoginReducer = (state = defaultState, action) => {
         remember: user.remember,
         userInfo: { username: user.username, password: user.password }
       }
+    case 'user/logout':
+      const remember = localStorage.getItem('remember')
+      const userInfo = localStorage.getItem('userInfo')
+      localStorage.clear()
+      if (remember) {
+        localStorage.setItem('remember', remember)
+        localStorage.setItem('userInfo', userInfo)
+      }
+      return state
     default:
       return state
   }
 }
 
-export default createStore(LoginReducer)
+export default createStore(UserReducer)

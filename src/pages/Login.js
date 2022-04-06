@@ -1,16 +1,22 @@
 import React from 'react'
 import { Form, Input, Button, Checkbox } from 'antd'
 import '../assets/scss/login.scss'
-import LoginReducer from '../store/LoginReducer'
+import UserReducer from '../store/UserReducer'
 import { useNavigate } from 'react-router-dom'
 
 
 export default function Login() {
   const navigate = useNavigate()
+  const form = {}
+  form.remember = Boolean(localStorage.getItem('remember'))
+  if (form.remember) {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    Object.assign(form, userInfo)
+  } 
   const onFinish = user => {
     user.token = 'token'
-    LoginReducer.dispatch({
-      type: 'login/changeUser',
+    UserReducer.dispatch({
+      type: 'user/changeUser',
       user: user
     })
     navigate('/home')
@@ -22,7 +28,7 @@ export default function Login() {
         <h2>用户登录</h2>
         <Form
           name="basic"
-          initialValues={{ remember: true }}
+          initialValues={form}
           onFinish={onFinish}
           autoComplete="off"
           validateTrigger="onBlur"
@@ -46,7 +52,7 @@ export default function Login() {
           </Form.Item>
 
           <Form.Item style={{ marginBottom: '10px' }} name="remember" valuePropName="checked" wrapperCol={{ offset: 5, span: 19 }}>
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>记住我</Checkbox>
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 5, span: 19 }}>

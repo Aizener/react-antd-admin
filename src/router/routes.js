@@ -14,7 +14,6 @@ import Authorization from '../pages/Authorization'
 
 const RequireAuth = ({ children }) => {
   const token = localStorage.getItem('token')
-  console.log(token)
   if (token) {
     return children
   } else {

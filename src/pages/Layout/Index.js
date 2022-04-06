@@ -4,6 +4,7 @@ import { Outlet, Navigate, useLocation } from 'react-router-dom'
 import LayoutHeader from './Header'
 import LayoutSlider from './Slider'
 import MenuReducer from '../../store/MenuReducer'
+import '../../assets/scss/layout.scss'
 
 const { Header, Sider, Content } = Layout
 
@@ -19,11 +20,7 @@ export default function Index() {
     <Layout>
       <Sider collapsed={collapsed}><LayoutSlider /></Sider>
       <Layout>
-        <Header style={{
-          padding: '0 15px',
-          background: '#fff',
-          boxShadow: '0 2px 5px #ccc'
-        }}><LayoutHeader /></Header>
+        <Header><LayoutHeader /></Header>
         <Content style={{padding: '15px'}}><Outlet /></Content>
       </Layout>
       { pathname === '/' && <Navigate to="/home" replace /> }

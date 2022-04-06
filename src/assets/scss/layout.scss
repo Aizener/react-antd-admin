@@ -1,0 +1,15 @@
+.ant-layout-header {
+  padding: 0 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .user-box {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}

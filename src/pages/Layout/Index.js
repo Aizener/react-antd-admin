@@ -5,7 +5,6 @@ import LayoutHeader from './Header'
 import LayoutSlider from './Slider'
 import MenuReducer from '../../store/MenuReducer'
 import '../../assets/scss/layout.scss'
-
 const { Header, Sider, Content } = Layout
 
 export default function Index() {

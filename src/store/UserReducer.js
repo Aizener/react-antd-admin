@@ -4,7 +4,7 @@ const defaultState = {
   remember: false,
   userInfo: null
 }
-const UserReducer = (state = defaultState, action) => {
+export const UserReducer = (state = defaultState, action) => {
   switch(action.type) {
     case 'user/changeUser':
       const user = action.user

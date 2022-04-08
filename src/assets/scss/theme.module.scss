@@ -1,0 +1,38 @@
+.theme {
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.theme_list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 30px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+.theme_item {
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  font-size: 14px;
+  display: flex;
+  color: #ccc;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.active {
+  color: #fff;
+  border: 1px solid #1e80ff;
+  background-color: #1e80ff;
+}

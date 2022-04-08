@@ -2,18 +2,16 @@ import { createStore, combineReducers  } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
  
-import { MenuReducer } from './MenuReducer'
-import { UserReducer } from './UserReducer'
+import { ThemeReducer } from './ThemeReducer'
 
 const reducers = combineReducers({
-  MenuReducer,
-  UserReducer
+  ThemeReducer,
 })
 
 const persistConfig = {
   key: 'root',
   storage,
-  // whitelist: ["UserReducer"],
+  // whitelist: [],
   // blacklist: []
 }
  

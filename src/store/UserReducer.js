@@ -1,17 +1,18 @@
 import { createStore } from 'redux'
 
 const defaultState = {
-  remember: false,
-  userInfo: null
+  remember: localStorage.getItem('remember') || false,
+  userInfo: sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : null
 }
+
 export const UserReducer = (state = defaultState, action) => {
   switch(action.type) {
     case 'user/changeUser':
       const user = action.user
-      localStorage.setItem('token', user.token)
+      sessionStorage.setItem('token', user.token)
       if (user.remember) {
         localStorage.setItem('remember', user.remember)
-        localStorage.setItem('userInfo', JSON.stringify({ username: user.username, password: user.password }))
+        sessionStorage.setItem('userInfo', JSON.stringify({ username: user.username, password: user.password }))
       } else {
         localStorage.removeItem('remember')
       }
@@ -23,11 +24,12 @@ export const UserReducer = (state = defaultState, action) => {
       }
     case 'user/logout':
       const remember = localStorage.getItem('remember')
-      const userInfo = localStorage.getItem('userInfo')
+      const userInfo = sessionStorage.getItem('userInfo')
       localStorage.clear()
+      sessionStorage.clear()
       if (remember) {
         localStorage.setItem('remember', remember)
-        localStorage.setItem('userInfo', userInfo)
+        sessionStorage.setItem('userInfo', userInfo)
       }
       return state
     default:

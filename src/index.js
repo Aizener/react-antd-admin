@@ -5,7 +5,7 @@ import App from './App';
 
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
-import store, {persistor } from './store/persited'
+import store, {persistor } from './store/PersistedStore'
 
 ReactDOM.render(
   <React.StrictMode>

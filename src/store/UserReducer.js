@@ -15,6 +15,7 @@ export const UserReducer = (state = defaultState, action) => {
         sessionStorage.setItem('userInfo', JSON.stringify({ username: user.username, password: user.password }))
       } else {
         localStorage.removeItem('remember')
+        sessionStorage.setItem('userInfo', JSON.stringify({ username: user.username }))
       }
       return {
         ...state,

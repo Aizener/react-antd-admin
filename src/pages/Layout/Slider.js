@@ -1,27 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Menu } from 'antd'
 import * as Icon from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import routes from '../../router/routes'
+import PersistedStore from '../../store/PersistedStore'
 
 const { SubMenu } = Menu
 
-// const menus = [
-//   { path: '/home', title: 'home', icon: 'PieChartOutlined' },
-//   { path: '/about', title: 'about', icon: 'DesktopOutlined' },
-//   { path: '/multi', title: 'nested', icon: 'ApartmentOutlined', children: [
-//     { path: '/multi/page1', title: 'nested1', icon: 'MenuOutlined', children: [
-//       { path: '/multi/page1/one', title: 'nested11', icon: 'MenuOutlined' },
-//       { path: '/multi/page1/two', title: 'nested12', icon: 'MenuOutlined' },
-//     ] },
-//     { path: '/multi/page2', title: 'nested2', icon: 'MenuOutlined' },
-//   ] },
-//   { path: '/international', title: 'i18n', icon: 'GlobalOutlined' },
-//   { path: '/authorization', title: 'auth', icon: 'SafetyOutlined' },
-// ]
+const getCuurentThemeStyle = () => {
+  const themeReducer = PersistedStore.getState().ThemeReducer
+  const theme = themeReducer.themes.find(theme => theme.value === themeReducer.current)
+  return theme.style
+}
 
 export default function Slider () {
+  const [theme, setTheme] = useState(getCuurentThemeStyle().antdTheme)
+  useEffect(() => {
+    const unsubscribe = PersistedStore.subscribe(() => {
+      setTheme(getCuurentThemeStyle().antdTheme)
+    })
+    return () => {
+      unsubscribe()
+    }
+  }, [])
   const generateMenus = (routes, path = '/') => {
     const menus = []
     routes.forEach(item => {
@@ -66,7 +68,7 @@ export default function Slider () {
   return (
     <Menu
       mode="inline"
-      theme="dark"
+      theme={theme}
       onClick={handleClickMenuItem}
     >
       { resolveMenu(generateMenus(routes[0].children)) }

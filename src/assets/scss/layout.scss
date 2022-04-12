@@ -1,7 +1,14 @@
+.ant-layout-sider {
+  background-color: var(--bg-color);
+  transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;;
+}
+
 .ant-layout-header {
   padding: 0 20px;
-  background: #fff;
+  color: var(--text-color);
+  background: var(--bg-color);
   box-shadow: 0 2px 5px #ccc;
+  transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;;
 }
 
 .header {
